@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Clientes - Jacome Construction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://cdn.b12.io/client_media/CX3PjssH/13911254-256f-11f0-b9c0-0242ac110002-RAiDXGs-gDI2pZfWfQodt.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      min-height: 80px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-empresa {
+      color: #2c3e50;
+    }
+
+    .info-empresa .nombre {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .info-empresa .detalle {
+      font-size: 14px;
+    }
+
+    .logo img {
+      max-width: 90px;
+      height: auto;
+    }
+
+    .contenedor {
+      max-width: 1000px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: space-between;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input, select {
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .campo {
+      flex: 1 1 45%;
+      min-width: 200px;
+    }
+
+    .boton {
+      background-color: #2980b9;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .boton:hover {
+      background-color: #3498db;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+      background-color: #ecf0f1;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border: 1px solid #bdc3c7;
+      text-align: left;
+    }
+
+    th {
+      background-color: #34495e;
+      color: white;
+    }
+
+    .acciones button {
+      margin-right: 5px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .editar { background-color: #27ae60; }
+    .eliminar { background-color: #c0392b; }
+
+    .volver-btn {
+      display: block;
+      margin: 40px auto 0;
+      background-color: #7f8c8d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .volver-btn:hover {
+      background-color: #95a5a6;
+    }
+
+    @media (max-width: 768px) {
+      .campo {
+        flex: 1 1 100%;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .logo img {
+        max-width: 70px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+
+      .info-empresa .nombre {
+        font-size: 22px;
+      }
+
+      .info-empresa .detalle {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="info-empresa">
+      <div class="nombre">Jacome Construction</div>
+      <div class="detalle">Dirección: 475 Stockton Ave, Suite F, San José, CA 95126</div>
+      <div class="detalle">Teléfono: (408)314-7101</div>
+      <div class="detalle">Construcción, remodelación, diseño</div>
+    </div>
+    <div class="logo">
+      <img src="../src/logo.png" alt="Logo Jacome">
+    </div>
+  </header>
+
+  <div class="contenedor">
+    <h1>Gestión de Clientes</h1>
+
+    <form id="formCliente">
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" required>
+      </div>
+      <div class="campo">
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono">
+      </div>
+      <div class="campo">
+        <label for="proyecto">Proyecto</label>
+        <input type="text" id="proyecto">
+      </div>
+      <button type="submit" class="boton">Registrar Cliente</button>
+    </form>
+
+    <table id="tablaClientes">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th>Proyecto</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Datos dinámicos aquí -->
+      </tbody>
+    </table>
+
+    <button class="volver-btn" onclick="volverAlPanel()">Volver al Panel Principal</button>
+  </div>
+
+  <script>
+    function volverAlPanel() {
+      window.location.href = 'panel_principal_v3.html';
+    }
+
+    document.getElementById('formCliente').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const correo = document.getElementById('correo').value;
+      const telefono = document.getElementById('telefono').value;
+      const proyecto = document.getElementById('proyecto').value;
+
+      const tabla = document.querySelector('#tablaClientes tbody');
+      const fila = tabla.insertRow();
+
+      fila.innerHTML = `
+        <td>${nombre}</td>
+        <td>${correo}</td>
+        <td>${telefono}</td>
+        <td>${proyecto}</td>
+        <td class="acciones">
+          <button class="editar">Editar</button>
+          <button class="eliminar">Eliminar</button>
+        </td>
+      `;
+
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
