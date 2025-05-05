@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jacome Panel Principal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://cdn.b12.io/client_media/CX3PjssH/13911254-256f-11f0-b9c0-0242ac110002-RAiDXGs-gDI2pZfWfQodt.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .header {
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .empresa-info {
+      color: #2c3e50;
+      flex: 1 1 auto;
+    }
+
+    .empresa-info .nombre {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .empresa-info .detalle {
+      font-size: 13px;
+    }
+
+    .logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .contenido {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+      height: calc(100% - 100px);
+    }
+
+    .botones {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      min-width: 230px;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .botones button {
+      font-size: 18px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-inicio {
+      background-color: #2980b9;
+    }
+    .btn-inicio:hover {
+      background-color: #3498db;
+    }
+
+    .btn-clientes {
+      background-color: #27ae60;
+    }
+    .btn-clientes:hover {
+      background-color: #2ecc71;
+    }
+
+    .btn-salir {
+      background-color: #c0392b;
+    }
+    .btn-salir:hover {
+      background-color: #e74c3c;
+    }
+
+    @media screen and (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+
+      .logo {
+        align-self: center;
+        margin-top: 10px;
+      }
+
+      .contenido {
+        padding: 20px 10px;
+      }
+
+      .botones {
+        padding: 20px;
+        gap: 15px;
+      }
+
+      .botones button {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="empresa-info">
+      <div class="nombre">Jacome Construction</div>
+      <div class="detalle">Dirección: 475 Stockton Ave, Suite F, San José, CA 95126, California, USA</div>
+      <div class="detalle">Teléfono: (408)314-7101</div>
+      <div class="detalle">Construcción, remodelación, diseño</div>
+    </div>
+    <div class="logo">
+      <img src="../src/logo.png" alt="Logo Jacome" />
+    </div>
+  </div>
+
+  <div class="contenido">
+    <div class="botones">
+      <button class="btn-inicio" onclick="abrirEnNuevaVentana('https://jacome-construction-jot3.b12sites.com/index')">Inicio</button>
+      <button class="btn-clientes" onclick="abrirEnNuevaVentana('gestion_clientes_jacome_v3.html')">Clientes</button>
+      <button class="btn-salir" onclick="cerrarVentana()">Salir</button>
+    </div>
+  </div>
+
+  <script>
+    function abrirEnNuevaVentana(url) {
+      window.open(url, '_blank');
+    }
+
+    function cerrarVentana() {
+      if (confirm("¿Deseas cerrar esta ventana?")) {
+        window.open('', '_self');
+        window.close();
+      }
+    }
+  </script>
+
+</body>
+</html>
